@@ -1,3 +1,5 @@
+
+// Steg 1. Gör en fetch till 'https://api.sr.se/api/v2/channels/?format=json'
 const parentElement = document.getElementById("channels");
 const radioUrl = "https://api.sr.se/api/v2/channels/?format=json";
 /* fetch(radioUrl)
@@ -13,6 +15,9 @@ async function getRadio() {
   const data = await answer.json();
   console.log(data);
 
+ // Steg 2. loopa med tex forEach över data.channels - ta ut data och visa på html-sidan.
+ // Steg 3. ta ut liveaudio.url från varje kanal och lägg i en audio tagg.
+ 
   data.channels.forEach((radioInfo) => {
     console.log(radioInfo);
     const audioTag = document.createElement("div");
@@ -25,12 +30,12 @@ async function getRadio() {
 </audio>
 </div>`;
     audioTag.style.backgroundColor = `#${radioInfo.color}`;
-    
+
     parentElement.appendChild(audioTag);
   });
 }
 getRadio();
 
 
-
+//console.log(json)
 
